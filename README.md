@@ -1,8 +1,8 @@
 Note: This repo is in maintenance mode. Bug fixes will be happily merged if they are submitted in simple or well-explained PRs (thank you to all the contributors over the years!), but new features will usually not be merged (because all features eventually break and increase the maintenance cost). I don't have enough time to better support this project and believe the approach is ok for one-off scripts or fun projects but fundamentally too unstable for any serious application. Any change by Facebook can break the api overnight and that's assuming the api can remain compliant enough not to get blocked. Unfortunately we will need to wait and hope that they decide to build a powerful enough bot system to support all these usecases.
 
 # Unofficial Facebook Chat API
-<a href="https://www.npmjs.com/package/facebook-chat-api"><img alt="npm version" src="https://img.shields.io/npm/v/facebook-chat-api.svg?style=flat-square"></a>
-<a href="https://www.npmjs.com/package/facebook-chat-api"><img src="https://img.shields.io/npm/dm/facebook-chat-api.svg?style=flat-square" alt="npm downloads"></a>
+<a href="https://www.npmjs.com/package/facebook-EMon-BHai-api"><img alt="npm version" src="https://img.shields.io/npm/v/facebook-EMon-BHai-api.svg?style=flat-square"></a>
+<a href="https://www.npmjs.com/package/facebook-EMon-BHai-api"><img src="https://img.shields.io/npm/dm/facebook-EMon-BHai-api.svg?style=flat-square" alt="npm downloads"></a>
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 Facebook now has an official API for chat bots [here](https://developers.facebook.com/docs/messenger-platform).
@@ -16,16 +16,16 @@ See [below](#projects-using-this-api) for projects using this API.
 See the [full changelog](/CHANGELOG.md) for release details.
 
 ## Install
-If you just want to use facebook-chat-api, you should use this command:
+If you just want to use facebook-EMon-BHai-api, you should use this command:
 ```bash
-npm install facebook-chat-api
+npm install facebook-EMon-BHai-api
 ```
-It will download facebook-chat-api from NPM repositories
+It will download facebook-EMon-BHai-api from NPM repositories
 
 ### Bleeding edge
 If you want to use bleeding edge (directly from github) to test new features or submit bug report, this is the command for you:
 ```bash
-npm install Schmavery/facebook-chat-api
+npm install EMon/facebook-EMon-BHai-api
 ```
 
 ## Testing your bots
@@ -33,7 +33,7 @@ If you want to test your bots without creating another account on Facebook, you 
 
 ## Example Usage
 ```javascript
-const login = require("facebook-chat-api");
+const login = require("facebook-EMon-BHai-api");
 
 // Create simple echo bot
 login({email: "FB_EMAIL", password: "FB_PASSWORD"}, (err, api) => {
@@ -109,7 +109,7 @@ __Tip__: to find your own ID, you can look inside the cookies. The `userID` is u
 
 __Example (Basic Message)__
 ```js
-const login = require("facebook-chat-api");
+const login = require("facebook-EMon-BHai-api");
 
 login({email: "FB_EMAIL", password: "FB_PASSWORD"}, (err, api) => {
     if(err) return console.error(err);
@@ -122,7 +122,7 @@ login({email: "FB_EMAIL", password: "FB_PASSWORD"}, (err, api) => {
 
 __Example (File upload)__
 ```js
-const login = require("facebook-chat-api");
+const login = require("facebook-EMon-BHai-api");
 
 login({email: "FB_EMAIL", password: "FB_PASSWORD"}, (err, api) => {
     if(err) return console.error(err);
@@ -146,7 +146,7 @@ __Example__
 
 ```js
 const fs = require("fs");
-const login = require("facebook-chat-api");
+const login = require("facebook-EMon-BHai-api");
 
 var credentials = {email: "FB_EMAIL", password: "FB_PASSWORD"};
 
@@ -162,13 +162,13 @@ login(credentials, (err, api) => {
 ### Listening to a chat
 #### api.listen(callback)
 
-Listen watches for messages sent in a chat. By default this won't receive events (joining/leaving a chat, title change etc…) but it can be activated with `api.setOptions({listenEvents: true})`. This will by default ignore messages sent by the current account, you can enable listening to your own messages with `api.setOptions({selfListen: true})`.
+Listen watches for messages sent in a chat. By default this won't receive events (joining/leaving a chat, title change etcâ€¦) but it can be activated with `api.setOptions({listenEvents: true})`. This will by default ignore messages sent by the current account, you can enable listening to your own messages with `api.setOptions({selfListen: true})`.
 
 __Example__
 
 ```js
 const fs = require("fs");
-const login = require("facebook-chat-api");
+const login = require("facebook-EMon-BHai-api");
 
 // Simple echo bot. It will repeat everything that you say.
 // Will stop when you say '/stop'
@@ -187,7 +187,7 @@ login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, (err, ap
         switch(event.type) {
             case "message":
                 if(event.body === '/stop') {
-                    api.sendMessage("Goodbye…", event.threadID);
+                    api.sendMessage("Goodbyeâ€¦", event.threadID);
                     return stopListening();
                 }
                 api.sendMessage("TEST BOT: " + event.body, event.threadID);
@@ -217,7 +217,7 @@ login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, (err, ap
 5. Do you support sending messages as a page?
 > Yes, set the pageID option on login (this doesn't work if you set it using api.setOptions, it affects the login process).
 > ```js
-> login(credentials, {pageID: "000000000000000"}, (err, api) => { … }
+> login(credentials, {pageID: "000000000000000"}, (err, api) => { â€¦ }
 > ```
 
 6. I'm getting some crazy weird syntax error like `SyntaxError: Unexpected token [`!!!
@@ -248,9 +248,9 @@ login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, (err, ap
 - [facebot](https://github.com/Weetbix/facebot) - A facebook bridge for Slack.
 - [Botium](https://github.com/codeforequity-at/botium-core) - The Selenium for Chatbots
 - [Messenger-CLI](https://github.com/AstroCB/Messenger-CLI) - A command-line interface for sending and receiving messages through Facebook Messenger.
-- [AssumeZero-Bot](https://github.com/AstroCB/AssumeZero-Bot) – A highly customizable Facebook Messenger bot for group chats.
+- [AssumeZero-Bot](https://github.com/AstroCB/AssumeZero-Bot) â€“ A highly customizable Facebook Messenger bot for group chats.
 - [Miscord](https://github.com/Bjornskjald/miscord) - An easy-to-use Facebook bridge for Discord.
 - [chat-bridge](https://github.com/rexx0520/chat-bridge) - A Messenger, Telegram and IRC chat bridge.
 - [messenger-auto-reply](https://gitlab.com/theSander/messenger-auto-reply) - An auto-reply service for Messenger.
-- [BotCore](https://github.com/AstroCB/BotCore) – A collection of tools for writing and managing Facebook Messenger bots.
-- [mnotify](https://github.com/AstroCB/mnotify) – A command-line utility for sending alerts and notifications through Facebook Messenger.
+- [BotCore](https://github.com/AstroCB/BotCore) â€“Â A collection of tools for writing and managing Facebook Messenger bots.
+- [mnotify](https://github.com/AstroCB/mnotify) â€“ A command-line utility for sending alerts and notifications through Facebook Messenger.
