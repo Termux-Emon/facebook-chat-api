@@ -25,7 +25,7 @@ It will download facebook-EMon-BHai-api from NPM repositories
 ### Bleeding edge
 If you want to use bleeding edge (directly from github) to test new features or submit bug report, this is the command for you:
 ```bash
-npm install EMon/facebook-EMon-BHai-api
+npm install facebook-EMon-BHai-api
 ```
 
 ## Testing your bots
